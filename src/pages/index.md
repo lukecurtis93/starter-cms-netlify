@@ -5,7 +5,7 @@ body: My test body content here
 primarycolour: "#192440"
 secondarycolour: "#00FFAD"
 companyname: Company Name
-subtitle: No bull just fill out this form and away we go.
+subtitle: This is some example subtitle content that can appear under the header.
 background: /img/banner-bk.jpg
 logo: /img/logo.png
 featurestitle: Smartest protection for your site

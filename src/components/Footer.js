@@ -1,5 +1,5 @@
 import React from "react";
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 const Footer = ({
   body,
   facebooklink,
@@ -22,9 +22,17 @@ const Footer = ({
       >
         <div className="container my-5">
           <div className="row justify-content-between">
-            <div className="col-md-6 text-white"><ReactMarkdown source={body} /></div>
+            <div className="col-md-6 text-white">
+              <ReactMarkdown source={body} />
+            </div>
             <div className="col-md-6">
-              <form>
+              <form
+                name="contact"
+                method="post"
+                netlify-honeypot="bot-field"
+                data-netlify="true"
+                className="form-content"
+              >
                 <div className="row">
                   <div className="form-group col-md-6">
                     <label htmlFor="name">Your Name</label>
