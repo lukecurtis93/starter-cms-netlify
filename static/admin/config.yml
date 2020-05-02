@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Landing Page"
+        name: "index"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Primary Colour, name: primarycolour, widget: string}
+          - {label: Secondary Colour, name: secondarycolour, widget: string}
+          - {label: Company Name, name: companyname, widget: string}
+          - {label: "Subtitle", name: "subtitle", widget: "markdown"}
+          - {label: Background Image, name: background, widget: image}
+          - {label: Logo, name: logo, widget: image}
+          - {label: Features Title, name: featurestitle, widget: text}
+          - {label: Features, name: features, widget: object, fields: [{label: Feature Entry, name: featuresentry, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Title, name: title, widget: text}, {label: Text, name: body, widget: "markdown"}]}]}
+          - {label: Services, name: services, widget: object, fields: [{label: Service Entry, name: serviceentry, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Title, name: title, widget: text}, {label: Text, name: body, widget: "markdown"}]}]}
+          - {label: Companies, name: companies, widget: object, fields: [{label: Company Entry, name: companyentry, widget: list, fields: [{label: Image, name: image, widget: image}]}]}
+          - {label: "Contact Copy", name: body, widget: "markdown"}
+          - {label: Footer Background, name: footerbackground, widget: image}
+          - {label: "Facebook Link", name: "facebooklink", widget: string}
+          - {label: "Instagram Link", name: "instagramlink", widget: string}
