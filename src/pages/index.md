@@ -2,8 +2,9 @@
 templateKey: index-page
 title: A Free Website from Luke & Christopher
 body: My test body content here
-primarycolour: "#192440"
-secondarycolour: "#00FFAD"
+primarycolour: "#00FFAD"
+secondarycolour: "#192440"
+highcontrast: false
 companyname: Company Name
 subtitle: This is some example subtitle content that can appear under the header.
 background: /img/banner-bk.jpg

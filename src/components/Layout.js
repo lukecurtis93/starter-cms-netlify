@@ -14,6 +14,9 @@ const TemplateWrapper = ({
   facebooklink,
   footerbackground,
   instagramlink,
+  primarycolour,
+  secondarycolour,
+  highcontrast,
   companyname
 }) => {
   useEffect(() => {
@@ -76,6 +79,9 @@ const TemplateWrapper = ({
         body={body}
         companyname={companyname}
         facebooklink={facebooklink}
+        highcontrast={highcontrast}
+        secondarycolour={secondarycolour}
+        primarycolour={primarycolour}
         instagramlink={instagramlink}
       />
     </div>

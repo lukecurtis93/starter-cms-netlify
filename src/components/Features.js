@@ -1,8 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FeatureGrid = ({ features, featuresTitle, companies, services }) => {
-
+const FeatureGrid = ({
+  features,
+  primarycolour,
+  secondarycolour,
+  highcontrast,
+  featuresTitle,
+  companies,
+  services,
+}) => {
   return (
     <div>
       <div className="container my-5 py-2">
@@ -34,7 +41,7 @@ const FeatureGrid = ({ features, featuresTitle, companies, services }) => {
           })}
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid feature feature-first">
+      <div className="jumbotron jumbotron-fluid feature feature-first" style={{background:`linear-gradient(168deg, #ffffff 55%, `+primarycolour+` 0)`}}>
         <div className="container my-5">
           <div className="row justify-content-between text-center text-md-left">
             <div
@@ -50,6 +57,7 @@ const FeatureGrid = ({ features, featuresTitle, companies, services }) => {
               <a
                 href="#contact"
                 className="btn my-4 font-weight-bold atlas-cta cta-blue"
+                style={{ background: secondarycolour }}
               >
                 Learn More
               </a>
@@ -73,63 +81,76 @@ const FeatureGrid = ({ features, featuresTitle, companies, services }) => {
           </div>
         </div>
       </div>
-      <div className="jumbotron jumbotron-fluid feature feature-last">
+      <div
+        className="jumbotron jumbotron-fluid feature feature-last"
+        style={{ background: primarycolour }}
+      >
         <div className="container">
-          {services.serviceentry.filter(x => x.title !== services.serviceentry[0].title).map((x, index) => {
-            return (
-              <div
-                key={x.title}
-                className="row justify-content-between text-center text-md-left mb-4"
-                style={{
-                  flexDirection: index % 2 === 0 ? "row-reverse" : "row",
-                }}
-              >
+          {services.serviceentry
+            .filter((x) => x.title !== services.serviceentry[0].title)
+            .map((x, index) => {
+              return (
                 <div
-                  data-aos="fade-left"
-                  data-aos-duration="1000"
-                  data-aos-once="true"
-                  className="col-md-6 flex-md-last"
+                  key={x.title}
+                  className="row justify-content-between text-center text-md-left mb-4"
+                  style={{
+                    flexDirection: index % 2 === 0 ? "row-reverse" : "row",
+                  }}
                 >
-                  <h2 className="font-weight-bold">{x.title} inner</h2>
-                  <p className="my-4">{x.body}</p>
-                  <a
-                    href="#contact"
-                    className="btn my-4 font-weight-bold atlas-cta cta-blue"
+                  <div
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    data-aos-once="true"
+                    className="col-md-6 flex-md-last"
                   >
-                    Learn More
-                  </a>
+                    <h2 className="font-weight-bold" style={{ color: highcontrast ? 'white' : ''}}>{x.title} inner</h2>
+                    <p className="my-4" style={{ color: highcontrast ? 'white' : ''}}>{x.body}</p>
+                    <a
+                      href="#contact"
+                      className="btn my-4 font-weight-bold atlas-cta cta-blue"
+                      style={{ background: secondarycolour }}
+                    >
+                      Learn More
+                    </a>
+                  </div>
+                  <div
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                    data-aos-once="true"
+                    className="col-md-6 align-self-center flex-md-first"
+                  >
+                    <img
+                      src={
+                        x.image.childImageSharp
+                          ? x.image.childImageSharp.fluid.src
+                          : x.image
+                      }
+                      alt="Safe and reliable"
+                      className="mx-auto d-block"
+                    />
+                  </div>
                 </div>
-                <div
-                  data-aos="fade-right"
-                  data-aos-duration="1000"
-                  data-aos-once="true"
-                  className="col-md-6 align-self-center flex-md-first"
-                >
-                  <img
-                    src={
-                      x.image.childImageSharp
-                        ? x.image.childImageSharp.fluid.src
-                        : x.image
-                    }
-                    alt="Safe and reliable"
-                    className="mx-auto d-block"
-                  />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
           <div className="row">
-            {companies.companyentry.map((x,index) => (
-              <div key={index} className="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src={
-                      x.image.childImageSharp
-                        ? x.image.childImageSharp.fluid.src
-                        : x.image
-                    } className="mx-auto d-block" alt="The Company Logo" />
+            {companies.companyentry.map((x, index) => (
+              <div
+                key={index}
+                className="col-sm-4 col-md-2 py-2 align-self-center"
+              >
+                <img
+                  src={
+                    x.image.childImageSharp
+                      ? x.image.childImageSharp.fluid.src
+                      : x.image
+                  }
+                  className="mx-auto d-block"
+                  alt="The Company Logo"
+                />
               </div>
             ))}
           </div>

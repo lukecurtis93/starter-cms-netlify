@@ -122,7 +122,7 @@ button {
 #contact form input,
 #contact form textarea {
     background: transparent;
-    border: 1px solid #00FFAD;
+    /* border: 1px solid #00FFAD; */
     color: #ffffff;
 }
 

@@ -10,6 +10,9 @@ export const IndexPageTemplate = ({
   logo,
   subtitle,
   features,
+  primarycolour,
+  secondarycolour,
+  highcontrast,
   featurestitle,
   companies,
   services,
@@ -65,6 +68,7 @@ export const IndexPageTemplate = ({
             data-aos-duration="1000"
             data-aos-once="true"
             className="btn my-4 font-weight-bold atlas-cta cta-green"
+            style={{background:primarycolour, color: highcontrast ? 'white' : ''}}
           >
             Get Started
           </a>
@@ -73,6 +77,9 @@ export const IndexPageTemplate = ({
       <Features
         features={features}
         services={services}
+        highcontrast={highcontrast}
+        secondarycolour={secondarycolour}
+        primarycolour={primarycolour}
         companies={companies}
         featuresTitle={featurestitle}
       />
@@ -100,12 +107,18 @@ const IndexPage = ({ data }) => {
       facebooklink={frontmatter.facebooklink}
       footerbackground={frontmatter.footerbackground}
       instagramlink={frontmatter.instagramlink}
+      secondarycolour={frontmatter.secondarycolour}
+      highcontrast={frontmatter.highcontrast}
+      primarycolour={frontmatter.primarycolour}
     >
       <IndexPageTemplate
         background={frontmatter.background}
         logo={frontmatter.logo}
         title={frontmatter.title}
         subtitle={frontmatter.subtitle}
+        highcontrast={frontmatter.highcontrast}
+        secondarycolour={frontmatter.secondarycolour}
+        primarycolour={frontmatter.primarycolour}
         features={frontmatter.features}
         featurestitle={frontmatter.featurestitle}
         services={frontmatter.services}
@@ -139,6 +152,9 @@ export const pageQuery = graphql`
             }
           }
         }
+        primarycolour
+        secondarycolour
+        highcontrast
         facebooklink
         instagramlink
         subtitle

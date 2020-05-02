@@ -3,6 +3,9 @@ import ReactMarkdown from "react-markdown";
 const Footer = ({
   body,
   facebooklink,
+  primarycolour,
+  secondarycolour,
+  highcontrast,
   footerbackground,
   companyname,
   instagramlink,
@@ -23,7 +26,7 @@ const Footer = ({
         <div className="container my-5">
           <div className="row justify-content-between">
             <div className="col-md-6 text-white">
-              <ReactMarkdown source={body} />
+              <ReactMarkdown source={body} style={{ color: highcontrast ? 'white' : primarycolour }} />
             </div>
             <div className="col-md-6">
               <form
@@ -35,18 +38,35 @@ const Footer = ({
               >
                 <div className="row">
                   <div className="form-group col-md-6">
-                    <label htmlFor="name">Your Name</label>
-                    <input type="name" className="form-control" id="name" />
+                    <label htmlFor="name" style={{ color: highcontrast ? 'white' : primarycolour }}>
+                      Your Name
+                    </label>
+                    <input
+                      type="name"
+                      className="form-control"
+                      id="name"
+                      style={{ border: `1px solid ` + (highcontrast ? 'white' : primarycolour) }}
+                    />
                   </div>
                   <div className="form-group col-md-6">
-                    <label htmlFor="Email">Your Email</label>
-                    <input type="email" className="form-control" id="Email" />
+                    <label htmlFor="Email" style={{ color: highcontrast ? 'white' : primarycolour }}>
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="Email"
+                      style={{ border: `1px solid ` + (highcontrast ? 'white' : primarycolour) }}
+                    />
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">Message</label>
+                  <label htmlFor="message" style={{ color: highcontrast ? 'white' : primarycolour }}>
+                    Message
+                  </label>
                   <textarea
                     className="form-control"
+                    style={{ border: `1px solid ` + (highcontrast ? 'white' : primarycolour) }}
                     id="message"
                     rows="3"
                   ></textarea>
@@ -54,6 +74,7 @@ const Footer = ({
                 <button
                   type="submit"
                   className="btn font-weight-bold atlas-cta atlas-cta-wide cta-green my-3"
+                  style={{ background: secondarycolour }}
                 >
                   Submit
                 </button>
@@ -63,7 +84,11 @@ const Footer = ({
         </div>
       </div>
 
-      <div className="jumbotron jumbotron-fluid" id="copyright">
+      <div
+        className="jumbotron jumbotron-fluid"
+        id="copyright"
+        style={{ background: secondarycolour }}
+      >
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-md-6 text-white align-self-center text-center text-md-left my-2">
