@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Curtis & Curtis Free website',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'A free website from Luke and Christopher Curtis to supercharge your new business.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
